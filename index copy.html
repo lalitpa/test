@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Do you love me?</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    #no-btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+</style>
+</head>
+<body>
+
+<h1>Do you love me?</h1>
+
+<button id="yes-btn">Yes</button>
+<button id="no-btn">No</button>
+
+<script>
+    const yesBtn = document.getElementById('yes-btn');
+    const noBtn = document.getElementById('no-btn');
+    
+    yesBtn.addEventListener('click', () => {
+        alert("Love you too Gadhi, You don't have any other option");
+    });
+    
+    document.addEventListener('mousemove', (event) => {
+        const noBtnRect = noBtn.getBoundingClientRect();
+        const mouseX = event.clientX;
+        const mouseY = event.clientY;
+        
+        // Check if the cursor is near the "No" button
+        if (
+            mouseX >= noBtnRect.left - 50 &&
+            mouseX <= noBtnRect.right + 50 &&
+            mouseY >= noBtnRect.top - 50 &&
+            mouseY <= noBtnRect.bottom + 50
+        ) {
+            // Move the "No" button to a random position
+            noBtn.style.top = `${Math.random() * 100}%`;
+            noBtn.style.left = `${Math.random() * 100}%`;
+        }
+    });
+</script>
+
+</body>
+</html>
